@@ -1,0 +1,80 @@
+{
+  "format": "pai",
+  "version": "0.6",
+  "id": "layout-sample",
+  "revision": 3,
+  "title": "同图、布局与留白",
+  "background": "#fbfcf9",
+  "regions": [
+    {
+      "id": "intro",
+      "markdown": "# 结构样例\n\n<!--pai:blank-->\n\n正文含 **粗体**、*斜体*、`code` 与 [外部链接](https://example.org)。\n\n---",
+      "background": null
+    },
+    {
+      "id": "list",
+      "markdown": "## 列表\n\n- 第一项\n- 第二项\n\n1. 先做\n2. 再做\n\n> 引用文字",
+      "background": "#ffffff"
+    },
+    {
+      "id": "image",
+      "markdown": "![同一图片](pai:hero){pai-image:img_a width=60 align=left}\n\n![再次使用](pai:hero){pai-image:img_b width=35 align=right}",
+      "background": null
+    },
+    {
+      "id": "code",
+      "markdown": "```python\nx = 1\nprint(x)\n```\n\n| 项目 | 数值 |\n| --- | ---: |\n| 文件 | 2 |",
+      "background": null,
+      "backgroundImage": {
+        "asset": "hero",
+        "alt": "背景说明保留",
+        "x": 20,
+        "y": 70,
+        "overlay": 0.65,
+        "shade": "#ffffff"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "id": "s_title",
+      "regions": [
+        "intro"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    },
+    {
+      "id": "s_columns",
+      "regions": [
+        "list",
+        "image",
+        "code"
+      ],
+      "columns": 3,
+      "weights": [
+        0.8,
+        1.2,
+        1
+      ],
+      "width": "wide"
+    }
+  ],
+  "assets": {
+    "hero": {
+      "mime": "image/svg+xml",
+      "name": "service-hero.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2JkZGVjZiIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5NQUtFIFRIRSBORVhUIFNURVAgVklTSUJMRTwvdGV4dD48L3N2Zz4=",
+      "bytes": 455
+    },
+    "detail": {
+      "mime": "image/svg+xml",
+      "name": "service-detail.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2U5ZGRjOSIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5JREVBIC8gRFJBRlQgLyBUUlk8L3RleHQ+PC9zdmc+",
+      "bytes": 447
+    }
+  }
+}

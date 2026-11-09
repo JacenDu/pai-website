@@ -1,0 +1,111 @@
+{
+  "format": "pai",
+  "version": "0.6",
+  "id": "event",
+  "title": "周六，一起把想法做出来",
+  "revision": 0,
+  "background": "#fbfcf9",
+  "sections": [
+    {
+      "id": "s0",
+      "regions": [
+        "intro",
+        "hero"
+      ],
+      "columns": 2,
+      "weights": [
+        1,
+        1
+      ],
+      "width": "wide"
+    },
+    {
+      "id": "s1",
+      "regions": [
+        "offer-a",
+        "offer-b",
+        "offer-c"
+      ],
+      "columns": 3,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "width": "wide"
+    },
+    {
+      "id": "s2",
+      "regions": [
+        "details"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    },
+    {
+      "id": "s3",
+      "regions": [
+        "example"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    }
+  ],
+  "regions": [
+    {
+      "id": "intro",
+      "markdown": "# 周六，一起把想法做出来\n\n城市共创日 · 第 03 期\n\n11 月 21 日，14:00–17:00。社区共创空间，限 24 人。\n\n每个人带一个想法，离开时带走一份能继续修改的作品。\n\n同一修订的冲突修改。",
+      "background": null
+    },
+    {
+      "id": "hero",
+      "markdown": "![共创空间的示意图](pai:hero)",
+      "background": null
+    },
+    {
+      "id": "offer-a",
+      "markdown": "## 带什么\n\n电脑、一个真实问题，以及你手头已有的材料。",
+      "background": null
+    },
+    {
+      "id": "offer-b",
+      "markdown": "## 会得到什么\n\n一个能展示的样张，一轮同伴反馈，一张后续行动卡。",
+      "background": null
+    },
+    {
+      "id": "offer-c",
+      "markdown": "## 适合谁\n\n独立创作者、社区组织者，以及第一次尝试 AI 创作的人。",
+      "background": null
+    },
+    {
+      "id": "details",
+      "markdown": "## 当天安排\n\n| 时间 | 环节 |\n| --- | --- |\n| 14:00 | 介绍各自的问题 |\n| 14:30 | 动手做第一个版本 |\n| 16:15 | 互相试用与反馈 |\n\n> 作品可以很小，现场必须能让另一个人看懂。",
+      "background": "#f0f5ef"
+    },
+    {
+      "id": "example",
+      "markdown": "## 报名备注\n\n```text\n我的想法：为邻里做一张活动卡\n我需要帮助：排清内容和报名方式\n```\n\n![活动流程的示意图](pai:detail)\n\n[填写报名信息](https://example.com/join)",
+      "background": null
+    }
+  ],
+  "assets": {
+    "hero": {
+      "mime": "image/svg+xml",
+      "name": "event-hero.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2YxY2RhOSIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5BIFNBVFVSREFZIFRPIE1BS0U8L3RleHQ+PC9zdmc+",
+      "bytes": 447
+    },
+    "detail": {
+      "mime": "image/svg+xml",
+      "name": "event-detail.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2U4ZGRiOCIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5CUklORyAvIE1BS0UgLyBTSEFSRTwvdGV4dD48L3N2Zz4=",
+      "bytes": 449
+    }
+  }
+}

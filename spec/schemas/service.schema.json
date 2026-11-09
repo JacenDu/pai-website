@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pai.example/spec/schemas/service.schema.json",
+  "title": "PAI content service 0.1.0-draft.1",
+  "description": "Payload shapes for content service 0.1.0-draft.1. Cross-field and same-origin checks are defined in SERVICE.md. Legacy 0.0.6 snapshots retain their original content hash and file.",
+  "anyOf": [
+    { "$ref": "#/$defs/discovery" },
+    { "$ref": "#/$defs/resource" },
+    { "$ref": "#/$defs/content" },
+    { "$ref": "#/$defs/index" },
+    { "$ref": "#/$defs/error" }
+  ],
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^(?:/(?!/)[^\\s]*|https?://[^\\s]+)$",
+      "description": "Root-relative or absolute HTTP(S); absolute URLs and resolved redirects must match the discovery origin. HTTPS is required online; HTTP is allowed for loopback development."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "not": { "enum": ["__proto__", "constructor", "prototype"] }
+    },
+    "resourceId": { "type": "string", "minLength": 1 },
+    "resourceVersion": { "type": "string", "pattern": "^[1-9][0-9]*$" },
+    "format": {
+      "type": "object",
+      "required": ["id", "mediaType", "contentVersion"],
+      "properties": {
+        "id": { "enum": ["pai-zip-v1", "pai-html-v0.6"] },
+        "mediaType": { "enum": ["application/zip", "text/html"] },
+        "contentVersion": { "const": "0.6" }
+      },
+      "oneOf": [
+        { "properties": { "id": { "const": "pai-zip-v1" }, "mediaType": { "const": "application/zip" } } },
+        { "properties": { "id": { "const": "pai-html-v0.6" }, "mediaType": { "const": "text/html" } } }
+      ]
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["protocol", "version", "profile", "capabilities", "formats", "authentication", "contractUrl", "endpoints"],
+      "properties": {
+        "protocol": { "const": "pai" },
+        "version": { "const": "0.1.0-draft.1" },
+        "profile": { "const": "content" },
+        "capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["document-publication", "document-update", "content-read"] },
+          "contains": { "const": "content-read" }
+        },
+        "formats": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/format" } },
+        "authentication": {
+          "type": "object",
+          "required": ["scheme"],
+          "properties": { "scheme": { "const": "Bearer" } }
+        },
+        "contractUrl": { "$ref": "#/$defs/url" },
+        "endpoints": {
+          "type": "object",
+          "required": ["resources"],
+          "properties": {
+            "documents": { "$ref": "#/$defs/url" },
+            "resources": { "$ref": "#/$defs/url" }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "capabilities": { "type": "array", "contains": { "const": "document-publication" } } } },
+          "then": { "properties": { "endpoints": { "type": "object", "required": ["documents"], "properties": { "documents": { "$ref": "#/$defs/url" } } } } }
+        }
+      ]
+    },
+    "documentMetadata": {
+      "type": "object",
+      "required": ["id", "revision", "title", "format", "version", "contentHash", "contentHashAlgorithm"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "revision": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+        "title": { "type": "string" },
+        "format": { "const": "pai" },
+        "version": { "const": "0.6" },
+        "contentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "contentHashAlgorithm": { "enum": ["pai-content-sha256-v1", "pai-json-sha256-v0.6"] }
+      }
+    },
+    "representations": {
+      "type": "object",
+      "required": ["reading", "download", "content"],
+      "properties": {
+        "reading": { "$ref": "#/$defs/url" },
+        "download": { "$ref": "#/$defs/url" },
+        "content": { "$ref": "#/$defs/url" }
+      }
+    },
+    "resource": {
+      "type": "object",
+      "required": ["id", "version", "publisherId", "title", "url", "versionUrl", "previousVersionUrl", "document", "representations", "downloadFormat", "downloadMediaType"],
+      "properties": {
+        "id": { "$ref": "#/$defs/resourceId" },
+        "version": { "$ref": "#/$defs/resourceVersion" },
+        "publisherId": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "url": { "$ref": "#/$defs/url" },
+        "updateUrl": { "$ref": "#/$defs/url", "description": "Required when document-update is advertised; verified with discovery by the contract tests." },
+        "versionUrl": { "$ref": "#/$defs/url" },
+        "previousVersionUrl": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/url" }] },
+        "document": { "$ref": "#/$defs/documentMetadata" },
+        "representations": { "$ref": "#/$defs/representations" },
+        "downloadFormat": { "enum": ["pai-zip-v1", "pai-html-v0.6"] },
+        "downloadMediaType": { "enum": ["application/zip", "text/html"] }
+      },
+      "oneOf": [
+        { "properties": { "downloadFormat": { "const": "pai-zip-v1" }, "downloadMediaType": { "const": "application/zip" } } },
+        { "properties": { "downloadFormat": { "const": "pai-html-v0.6" }, "downloadMediaType": { "const": "text/html" } } }
+      ]
+    },
+    "resourceRef": {
+      "type": "object",
+      "required": ["id", "version", "url"],
+      "properties": {
+        "id": { "$ref": "#/$defs/resourceId" },
+        "version": { "$ref": "#/$defs/resourceVersion" },
+        "url": { "$ref": "#/$defs/url" }
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": ["id", "markdown", "sourceUrl"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "markdown": { "type": "string" },
+        "sourceUrl": { "$ref": "#/$defs/url" },
+        "backgroundImage": {
+          "type": "object",
+          "required": ["asset"],
+          "properties": {
+            "asset": { "$ref": "#/$defs/id" },
+            "alt": { "type": "string" }
+          },
+          "description": "Present when the source block uses a background image. References the same-version assets map; preserve alt when supplied."
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "required": ["mime", "name", "bytes"],
+      "properties": {
+        "mime": { "enum": ["image/png", "image/jpeg", "image/webp", "image/gif", "image/svg+xml"] },
+        "name": { "type": "string", "description": "Display name: source name when present, otherwise asset ID. This fallback does not alter the source document or its hash." },
+        "bytes": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 }
+      }
+    },
+    "content": {
+      "type": "object",
+      "required": ["resource", "document", "blocks", "assets"],
+      "properties": {
+        "resource": { "$ref": "#/$defs/resourceRef" },
+        "document": { "$ref": "#/$defs/documentMetadata" },
+        "blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/block" } },
+        "assets": {
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/id" },
+          "additionalProperties": { "$ref": "#/$defs/asset" }
+        }
+      }
+    },
+    "index": {
+      "type": "object",
+      "required": ["items"],
+      "properties": { "items": { "type": "array", "items": { "$ref": "#/$defs/resource" } } }
+    },
+    "error": {
+      "type": "object",
+      "required": ["error"],
+      "properties": {
+        "error": {
+          "enum": ["invalid_document", "authentication_required", "invalid_credentials", "forbidden", "resource_not_found", "resource_version_not_found", "document_id_mismatch", "document_revision_conflict", "stale_document_revision", "payload_too_large", "unsupported_format", "internal_error"]
+        },
+        "message": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,617 @@
+{
+  "origin": "https://provider.example",
+  "note": "Synthetic expected HTTP exchanges. Headers use fake fixture credentials. bodyFile refers to raw request bytes relative to this fixture directory. No live service called.",
+  "discovery": {
+    "protocol": "pai",
+    "version": "0.1.0-draft.1",
+    "profile": "content",
+    "capabilities": [
+      "document-publication",
+      "document-update",
+      "content-read"
+    ],
+    "formats": [
+      {
+        "id": "pai-zip-v1",
+        "mediaType": "application/zip",
+        "contentVersion": "0.6"
+      },
+      {
+        "id": "pai-html-v0.6",
+        "mediaType": "text/html",
+        "contentVersion": "0.6"
+      }
+    ],
+    "authentication": {
+      "scheme": "Bearer"
+    },
+    "contractUrl": "/spec/SERVICE.md",
+    "endpoints": {
+      "documents": "/documents",
+      "resources": "/resources"
+    }
+  },
+  "resources": {
+    "first": {
+      "id": "activity-a",
+      "version": "1",
+      "publisherId": "demo:alice",
+      "title": "周六，一起把想法做出来",
+      "url": "/resources/activity-a",
+      "updateUrl": "/resources/activity-a",
+      "versionUrl": "/resources/activity-a/versions/1",
+      "previousVersionUrl": null,
+      "document": {
+        "id": "event",
+        "revision": 0,
+        "title": "周六，一起把想法做出来",
+        "format": "pai",
+        "version": "0.6",
+        "contentHash": "57c427175ae215a6fa588de4cb1c42b3664d52ecbdfef0bdc3684aa7e08a26c3",
+        "contentHashAlgorithm": "pai-content-sha256-v1"
+      },
+      "representations": {
+        "reading": "/resources/activity-a/versions/1/read",
+        "download": "/resources/activity-a/versions/1/file",
+        "content": "/resources/activity-a/versions/1/content"
+      },
+      "downloadFormat": "pai-zip-v1",
+      "downloadMediaType": "application/zip"
+    },
+    "updated": {
+      "id": "activity-a",
+      "version": "2",
+      "publisherId": "demo:alice",
+      "title": "周六，一起把想法做出来",
+      "url": "/resources/activity-a",
+      "updateUrl": "/resources/activity-a",
+      "versionUrl": "/resources/activity-a/versions/2",
+      "previousVersionUrl": "/resources/activity-a/versions/1",
+      "document": {
+        "id": "event",
+        "revision": 3,
+        "title": "周六，一起把想法做出来",
+        "format": "pai",
+        "version": "0.6",
+        "contentHash": "11e8fd2407afe2855689732bd17b56c219bf4e809fe0685a13bf03e423949b12",
+        "contentHashAlgorithm": "pai-content-sha256-v1"
+      },
+      "representations": {
+        "reading": "/resources/activity-a/versions/2/read",
+        "download": "/resources/activity-a/versions/2/file",
+        "content": "/resources/activity-a/versions/2/content"
+      },
+      "downloadFormat": "pai-html-v0.6",
+      "downloadMediaType": "text/html"
+    },
+    "second": {
+      "id": "activity-b",
+      "version": "1",
+      "publisherId": "demo:bob",
+      "title": "周六，一起把想法做出来",
+      "url": "/resources/activity-b",
+      "updateUrl": "/resources/activity-b",
+      "versionUrl": "/resources/activity-b/versions/1",
+      "previousVersionUrl": null,
+      "document": {
+        "id": "event",
+        "revision": 0,
+        "title": "周六，一起把想法做出来",
+        "format": "pai",
+        "version": "0.6",
+        "contentHash": "57c427175ae215a6fa588de4cb1c42b3664d52ecbdfef0bdc3684aa7e08a26c3",
+        "contentHashAlgorithm": "pai-content-sha256-v1"
+      },
+      "representations": {
+        "reading": "/resources/activity-b/versions/1/read",
+        "download": "/resources/activity-b/versions/1/file",
+        "content": "/resources/activity-b/versions/1/content"
+      },
+      "downloadFormat": "pai-zip-v1",
+      "downloadMediaType": "application/zip"
+    },
+    "layout": {
+      "id": "layout-a",
+      "version": "1",
+      "publisherId": "demo:alice",
+      "title": "同图、布局与留白",
+      "url": "/resources/layout-a",
+      "updateUrl": "/resources/layout-a",
+      "versionUrl": "/resources/layout-a/versions/1",
+      "previousVersionUrl": null,
+      "document": {
+        "id": "layout-sample",
+        "revision": 3,
+        "title": "同图、布局与留白",
+        "format": "pai",
+        "version": "0.6",
+        "contentHash": "91d5899a688d8d14e0464f002089bf9960cc729abb02851a5f4b9fea5d9b7c18",
+        "contentHashAlgorithm": "pai-content-sha256-v1"
+      },
+      "representations": {
+        "reading": "/resources/layout-a/versions/1/read",
+        "download": "/resources/layout-a/versions/1/file",
+        "content": "/resources/layout-a/versions/1/content"
+      },
+      "downloadFormat": "pai-zip-v1",
+      "downloadMediaType": "application/zip"
+    }
+  },
+  "index": {
+    "items": [
+      {
+        "id": "activity-a",
+        "version": "2",
+        "publisherId": "demo:alice",
+        "title": "周六，一起把想法做出来",
+        "url": "/resources/activity-a",
+        "updateUrl": "/resources/activity-a",
+        "versionUrl": "/resources/activity-a/versions/2",
+        "previousVersionUrl": "/resources/activity-a/versions/1",
+        "document": {
+          "id": "event",
+          "revision": 3,
+          "title": "周六，一起把想法做出来",
+          "format": "pai",
+          "version": "0.6",
+          "contentHash": "11e8fd2407afe2855689732bd17b56c219bf4e809fe0685a13bf03e423949b12",
+          "contentHashAlgorithm": "pai-content-sha256-v1"
+        },
+        "representations": {
+          "reading": "/resources/activity-a/versions/2/read",
+          "download": "/resources/activity-a/versions/2/file",
+          "content": "/resources/activity-a/versions/2/content"
+        },
+        "downloadFormat": "pai-html-v0.6",
+        "downloadMediaType": "text/html"
+      },
+      {
+        "id": "activity-b",
+        "version": "1",
+        "publisherId": "demo:bob",
+        "title": "周六，一起把想法做出来",
+        "url": "/resources/activity-b",
+        "updateUrl": "/resources/activity-b",
+        "versionUrl": "/resources/activity-b/versions/1",
+        "previousVersionUrl": null,
+        "document": {
+          "id": "event",
+          "revision": 0,
+          "title": "周六，一起把想法做出来",
+          "format": "pai",
+          "version": "0.6",
+          "contentHash": "57c427175ae215a6fa588de4cb1c42b3664d52ecbdfef0bdc3684aa7e08a26c3",
+          "contentHashAlgorithm": "pai-content-sha256-v1"
+        },
+        "representations": {
+          "reading": "/resources/activity-b/versions/1/read",
+          "download": "/resources/activity-b/versions/1/file",
+          "content": "/resources/activity-b/versions/1/content"
+        },
+        "downloadFormat": "pai-zip-v1",
+        "downloadMediaType": "application/zip"
+      },
+      {
+        "id": "layout-a",
+        "version": "1",
+        "publisherId": "demo:alice",
+        "title": "同图、布局与留白",
+        "url": "/resources/layout-a",
+        "updateUrl": "/resources/layout-a",
+        "versionUrl": "/resources/layout-a/versions/1",
+        "previousVersionUrl": null,
+        "document": {
+          "id": "layout-sample",
+          "revision": 3,
+          "title": "同图、布局与留白",
+          "format": "pai",
+          "version": "0.6",
+          "contentHash": "91d5899a688d8d14e0464f002089bf9960cc729abb02851a5f4b9fea5d9b7c18",
+          "contentHashAlgorithm": "pai-content-sha256-v1"
+        },
+        "representations": {
+          "reading": "/resources/layout-a/versions/1/read",
+          "download": "/resources/layout-a/versions/1/file",
+          "content": "/resources/layout-a/versions/1/content"
+        },
+        "downloadFormat": "pai-zip-v1",
+        "downloadMediaType": "application/zip"
+      }
+    ]
+  },
+  "contents": {
+    "event": {
+      "resource": {
+        "id": "activity-a",
+        "version": "1",
+        "url": "/resources/activity-a/versions/1"
+      },
+      "document": {
+        "id": "event",
+        "revision": 0,
+        "title": "周六，一起把想法做出来",
+        "format": "pai",
+        "version": "0.6",
+        "contentHash": "57c427175ae215a6fa588de4cb1c42b3664d52ecbdfef0bdc3684aa7e08a26c3",
+        "contentHashAlgorithm": "pai-content-sha256-v1"
+      },
+      "blocks": [
+        {
+          "id": "intro",
+          "markdown": "# 周六，一起把想法做出来\n\n城市共创日 · 第 03 期\n\n11 月 21 日，14:00–17:00。社区共创空间，限 24 人。\n\n每个人带一个想法，离开时带走一份能继续修改的作品。",
+          "sourceUrl": "/resources/activity-a/versions/1/read#intro"
+        },
+        {
+          "id": "hero",
+          "markdown": "![共创空间的示意图](pai:hero)",
+          "sourceUrl": "/resources/activity-a/versions/1/read#hero"
+        },
+        {
+          "id": "offer-a",
+          "markdown": "## 带什么\n\n电脑、一个真实问题，以及你手头已有的材料。",
+          "sourceUrl": "/resources/activity-a/versions/1/read#offer-a"
+        },
+        {
+          "id": "offer-b",
+          "markdown": "## 会得到什么\n\n一个能展示的样张，一轮同伴反馈，一张后续行动卡。",
+          "sourceUrl": "/resources/activity-a/versions/1/read#offer-b"
+        },
+        {
+          "id": "offer-c",
+          "markdown": "## 适合谁\n\n独立创作者、社区组织者，以及第一次尝试 AI 创作的人。",
+          "sourceUrl": "/resources/activity-a/versions/1/read#offer-c"
+        },
+        {
+          "id": "details",
+          "markdown": "## 当天安排\n\n| 时间 | 环节 |\n| --- | --- |\n| 14:00 | 介绍各自的问题 |\n| 14:30 | 动手做第一个版本 |\n| 16:15 | 互相试用与反馈 |\n\n> 作品可以很小，现场必须能让另一个人看懂。",
+          "sourceUrl": "/resources/activity-a/versions/1/read#details"
+        },
+        {
+          "id": "example",
+          "markdown": "## 报名备注\n\n```text\n我的想法：为邻里做一张活动卡\n我需要帮助：排清内容和报名方式\n```\n\n![活动流程的示意图](pai:detail)\n\n[填写报名信息](https://example.com/join)",
+          "sourceUrl": "/resources/activity-a/versions/1/read#example"
+        }
+      ],
+      "assets": {
+        "hero": {
+          "mime": "image/svg+xml",
+          "name": "event-hero.svg",
+          "bytes": 447
+        },
+        "detail": {
+          "mime": "image/svg+xml",
+          "name": "event-detail.svg",
+          "bytes": 449
+        }
+      }
+    },
+    "event-updated": {
+      "resource": {
+        "id": "activity-a",
+        "version": "2",
+        "url": "/resources/activity-a/versions/2"
+      },
+      "document": {
+        "id": "event",
+        "revision": 3,
+        "title": "周六，一起把想法做出来",
+        "format": "pai",
+        "version": "0.6",
+        "contentHash": "11e8fd2407afe2855689732bd17b56c219bf4e809fe0685a13bf03e423949b12",
+        "contentHashAlgorithm": "pai-content-sha256-v1"
+      },
+      "blocks": [
+        {
+          "id": "intro",
+          "markdown": "# 周六，一起把想法做出来\n\n城市共创日 · 第 03 期\n\n11 月 28 日，14:00–17:00。社区共创空间，限 24 人。\n\n每个人带一个想法，离开时带走一份能继续修改的作品。",
+          "sourceUrl": "/resources/activity-a/versions/2/read#intro"
+        },
+        {
+          "id": "hero",
+          "markdown": "![共创空间的示意图](pai:hero)",
+          "sourceUrl": "/resources/activity-a/versions/2/read#hero"
+        },
+        {
+          "id": "offer-a",
+          "markdown": "## 带什么\n\n电脑、一个真实问题，以及你手头已有的材料。",
+          "sourceUrl": "/resources/activity-a/versions/2/read#offer-a"
+        },
+        {
+          "id": "offer-b",
+          "markdown": "## 会得到什么\n\n一个能展示的样张，一轮同伴反馈，一张后续行动卡。",
+          "sourceUrl": "/resources/activity-a/versions/2/read#offer-b"
+        },
+        {
+          "id": "offer-c",
+          "markdown": "## 适合谁\n\n独立创作者、社区组织者，以及第一次尝试 AI 创作的人。",
+          "sourceUrl": "/resources/activity-a/versions/2/read#offer-c"
+        },
+        {
+          "id": "details",
+          "markdown": "## 当天安排\n\n| 时间 | 环节 |\n| --- | --- |\n| 14:00 | 介绍各自的问题 |\n| 14:30 | 动手做第一个版本 |\n| 16:15 | 互相试用与反馈 |\n\n> 作品可以很小，现场必须能让另一个人看懂。",
+          "sourceUrl": "/resources/activity-a/versions/2/read#details"
+        },
+        {
+          "id": "example",
+          "markdown": "## 报名备注\n\n```text\n我的想法：为邻里做一张活动卡\n我需要帮助：排清内容和报名方式\n```\n\n![活动流程的示意图](pai:detail)\n\n[填写报名信息](https://example.com/join)",
+          "sourceUrl": "/resources/activity-a/versions/2/read#example"
+        }
+      ],
+      "assets": {
+        "hero": {
+          "mime": "image/svg+xml",
+          "name": "event-hero.svg",
+          "bytes": 447
+        },
+        "detail": {
+          "mime": "image/svg+xml",
+          "name": "event-detail.svg",
+          "bytes": 449
+        }
+      }
+    },
+    "layout": {
+      "resource": {
+        "id": "layout-a",
+        "version": "1",
+        "url": "/resources/layout-a/versions/1"
+      },
+      "document": {
+        "id": "layout-sample",
+        "revision": 3,
+        "title": "同图、布局与留白",
+        "format": "pai",
+        "version": "0.6",
+        "contentHash": "91d5899a688d8d14e0464f002089bf9960cc729abb02851a5f4b9fea5d9b7c18",
+        "contentHashAlgorithm": "pai-content-sha256-v1"
+      },
+      "blocks": [
+        {
+          "id": "intro",
+          "markdown": "# 结构样例\n\n<!--pai:blank-->\n\n正文含 **粗体**、*斜体*、`code` 与 [外部链接](https://example.org)。\n\n---",
+          "sourceUrl": "/resources/layout-a/versions/1/read#intro"
+        },
+        {
+          "id": "list",
+          "markdown": "## 列表\n\n- 第一项\n- 第二项\n\n1. 先做\n2. 再做\n\n> 引用文字",
+          "sourceUrl": "/resources/layout-a/versions/1/read#list"
+        },
+        {
+          "id": "image",
+          "markdown": "![同一图片](pai:hero){pai-image:img_a width=60 align=left}\n\n![再次使用](pai:hero){pai-image:img_b width=35 align=right}",
+          "sourceUrl": "/resources/layout-a/versions/1/read#image"
+        },
+        {
+          "id": "code",
+          "markdown": "```python\nx = 1\nprint(x)\n```\n\n| 项目 | 数值 |\n| --- | ---: |\n| 文件 | 2 |",
+          "sourceUrl": "/resources/layout-a/versions/1/read#code",
+          "backgroundImage": {
+            "asset": "hero",
+            "alt": "背景说明保留"
+          }
+        }
+      ],
+      "assets": {
+        "hero": {
+          "mime": "image/svg+xml",
+          "name": "service-hero.svg",
+          "bytes": 455
+        },
+        "detail": {
+          "mime": "image/svg+xml",
+          "name": "service-detail.svg",
+          "bytes": 447
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "name": "publish",
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "application/zip",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "event.pai"
+      },
+      "expected": {
+        "status": 201,
+        "resource": "first",
+        "latest": "first"
+      },
+      "documentFixture": "event"
+    },
+    {
+      "name": "retry-other-envelope",
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "../../content/dist/event.pai.html"
+      },
+      "expected": {
+        "status": 200,
+        "resource": "first",
+        "latest": "first"
+      },
+      "documentFixture": "event"
+    },
+    {
+      "name": "update",
+      "request": {
+        "method": "PUT",
+        "url": "/resources/activity-a",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "event-updated.pai.html"
+      },
+      "expected": {
+        "status": 201,
+        "resource": "updated",
+        "latest": "updated"
+      },
+      "documentFixture": "event-updated"
+    },
+    {
+      "name": "retry-history",
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "application/zip",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "event.pai"
+      },
+      "expected": {
+        "status": 200,
+        "resource": "first",
+        "latest": "updated"
+      },
+      "documentFixture": "event"
+    },
+    {
+      "name": "foreign-update",
+      "request": {
+        "method": "PUT",
+        "url": "/resources/activity-a",
+        "headers": {
+          "Content-Type": "application/zip",
+          "Authorization": "Bearer fixture-bob"
+        },
+        "bodyFile": "event-updated.pai"
+      },
+      "expected": {
+        "status": 403,
+        "body": {
+          "error": "forbidden"
+        }
+      },
+      "documentFixture": "event-updated"
+    },
+    {
+      "name": "another-author",
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "application/zip",
+          "Authorization": "Bearer fixture-bob"
+        },
+        "bodyFile": "event.pai"
+      },
+      "expected": {
+        "status": 201,
+        "resource": "second",
+        "latest": "second"
+      },
+      "documentFixture": "event"
+    },
+    {
+      "name": "wrong-document",
+      "request": {
+        "method": "PUT",
+        "url": "/resources/activity-a",
+        "headers": {
+          "Content-Type": "application/zip",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "service.pai"
+      },
+      "expected": {
+        "status": 409,
+        "body": {
+          "error": "document_id_mismatch"
+        }
+      },
+      "documentFixture": "service"
+    },
+    {
+      "name": "missing-credential",
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "application/zip"
+        },
+        "bodyFile": "event.pai"
+      },
+      "expected": {
+        "status": 401,
+        "body": {
+          "error": "authentication_required"
+        }
+      },
+      "documentFixture": "event"
+    },
+    {
+      "name": "revision-conflict",
+      "documentFixture": "event-conflict",
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "application/zip",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "event-conflict.pai"
+      },
+      "expected": {
+        "status": 409,
+        "body": {
+          "error": "document_revision_conflict"
+        }
+      }
+    },
+    {
+      "name": "stale-unpublished",
+      "documentFixture": "event-stale",
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "application/zip",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "event-stale.pai"
+      },
+      "expected": {
+        "status": 409,
+        "body": {
+          "error": "stale_document_revision"
+        }
+      }
+    },
+    {
+      "name": "unsupported-envelope",
+      "documentFixture": null,
+      "request": {
+        "method": "POST",
+        "url": "/documents",
+        "headers": {
+          "Content-Type": "text/plain",
+          "Authorization": "Bearer fixture-alice"
+        },
+        "bodyFile": "unsupported.txt"
+      },
+      "expected": {
+        "status": 415,
+        "body": {
+          "error": "unsupported_format"
+        }
+      }
+    }
+  ],
+  "credentials": {
+    "fixture-alice": "demo:alice",
+    "fixture-bob": "demo:bob"
+  }
+}

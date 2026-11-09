@@ -1,0 +1,11 @@
+PAI Content Alpha
+Copyright 2026 PAI contributors
+
+PAI-authored source code, specifications, documentation, and synthetic samples
+are provided under the Apache License, Version 2.0.
+
+Third-party components retain their own copyright and license notices.
+See THIRD-PARTY-NOTICES.txt and content/THIRD-PARTY-NOTICES.txt.
+
+The editor's license does not grant rights to documents or images supplied by
+its users. Those materials remain subject to their authors' terms.

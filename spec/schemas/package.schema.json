@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pai.example/spec/schemas/package.schema.json",
+  "title": "PAI ZIP v1 document.json — Draft 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["container", "document"],
+  "properties": {
+    "container": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "version"],
+      "properties": {
+        "format": {"const": "pai-zip"},
+        "version": {"const": "1"}
+      }
+    },
+    "document": {"$ref": "document.schema.json"}
+  }
+}

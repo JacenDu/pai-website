@@ -1,0 +1,111 @@
+{
+  "format": "pai",
+  "version": "0.6",
+  "id": "service",
+  "title": "把你的下一步，变成一张清楚的地图",
+  "revision": 0,
+  "background": "#fbfcf9",
+  "sections": [
+    {
+      "id": "s0",
+      "regions": [
+        "intro",
+        "hero"
+      ],
+      "columns": 2,
+      "weights": [
+        1,
+        1
+      ],
+      "width": "wide"
+    },
+    {
+      "id": "s1",
+      "regions": [
+        "offer-a",
+        "offer-b",
+        "offer-c"
+      ],
+      "columns": 3,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "width": "wide"
+    },
+    {
+      "id": "s2",
+      "regions": [
+        "details"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    },
+    {
+      "id": "s3",
+      "regions": [
+        "example"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    }
+  ],
+  "regions": [
+    {
+      "id": "intro",
+      "markdown": "# 把你的下一步，变成一张清楚的地图\n\n林间工作室 · 产品梳理与原型陪跑\n\n为独立创作者梳理一个最值得验证的想法。一起选问题、做样张、找人试。\n\n首轮沟通为 30 分钟。",
+      "background": null
+    },
+    {
+      "id": "hero",
+      "markdown": "![一起梳理想法的示意图](pai:hero)",
+      "background": null
+    },
+    {
+      "id": "offer-a",
+      "markdown": "## 问题梳理\n\n把零散想法收成一页行动清单。\n\n- 确定目标用户\n- 选出最小场景",
+      "background": null
+    },
+    {
+      "id": "offer-b",
+      "markdown": "## 原型共创\n\n做出一个可被试用的交付物。\n\n- 画清关键流程\n- 验证核心表达",
+      "background": null
+    },
+    {
+      "id": "offer-c",
+      "markdown": "## 试用复盘\n\n从真实使用里决定下一步。\n\n- 收集操作障碍\n- 保留有效改动",
+      "background": null
+    },
+    {
+      "id": "details",
+      "markdown": "## 怎么开始\n\n| 环节 | 交付 |\n| --- | --- |\n| 沟通 | 一个具体问题 |\n| 共创 | 一份可编辑样张 |\n| 复盘 | 下一轮行动 |\n\n> 带上你已经有的材料，一段文字也可以。",
+      "background": "#f0f5ef"
+    },
+    {
+      "id": "example",
+      "markdown": "## 把需求发给我\n\n```text\n我想帮助：独立创作者\n当前卡点：不知道先验证什么\n希望得到：一个可试用的样张\n```\n\n![从想法到样张的示意图](pai:detail)\n\n[查看准备清单](https://example.com/checklist)",
+      "background": null
+    }
+  ],
+  "assets": {
+    "hero": {
+      "mime": "image/svg+xml",
+      "name": "service-hero.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2JkZGVjZiIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5NQUtFIFRIRSBORVhUIFNURVAgVklTSUJMRTwvdGV4dD48L3N2Zz4=",
+      "bytes": 455
+    },
+    "detail": {
+      "mime": "image/svg+xml",
+      "name": "service-detail.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2U5ZGRjOSIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5JREVBIC8gRFJBRlQgLyBUUlk8L3RleHQ+PC9zdmc+",
+      "bytes": 447
+    }
+  }
+}

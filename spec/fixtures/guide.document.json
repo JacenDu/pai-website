@@ -1,0 +1,120 @@
+{
+  "format": "pai",
+  "version": "0.6",
+  "id": "guide",
+  "title": "用一页说明，让别人接得住你的想法",
+  "revision": 0,
+  "background": "#fbfcf9",
+  "sections": [
+    {
+      "id": "s0",
+      "regions": [
+        "intro"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    },
+    {
+      "id": "s1",
+      "regions": [
+        "hero"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    },
+    {
+      "id": "s2",
+      "regions": [
+        "offer-a",
+        "offer-b",
+        "offer-c"
+      ],
+      "columns": 3,
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "width": "wide"
+    },
+    {
+      "id": "s3",
+      "regions": [
+        "details"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    },
+    {
+      "id": "s4",
+      "regions": [
+        "example"
+      ],
+      "columns": 1,
+      "weights": [
+        1
+      ],
+      "width": "reading"
+    }
+  ],
+  "regions": [
+    {
+      "id": "intro",
+      "markdown": "# 用一页说明，让别人接得住你的想法\n\n创作者手册 · 约 5 分钟阅读\n\n这份方法适合把聊天里的零散想法，整理成能转发、能修改的说明。\n\n一页说明只解决一个问题。",
+      "background": null
+    },
+    {
+      "id": "hero",
+      "markdown": "![一页说明结构示意图](pai:hero)",
+      "background": null
+    },
+    {
+      "id": "offer-a",
+      "markdown": "## 01 写清对象\n\n用一句话写出谁会使用这份材料。\n\n- 避免笼统的“所有人”\n- 描述真实使用场景",
+      "background": null
+    },
+    {
+      "id": "offer-b",
+      "markdown": "## 02 留下证据\n\n放一张有用的图片，再写一句它说明了什么。\n\n- 给图片配替代文字\n- 保留事实出处",
+      "background": null
+    },
+    {
+      "id": "offer-c",
+      "markdown": "## 03 给出下一步\n\n明确读者看完以后能做的一个动作。\n\n- 写出行动条件\n- 放上有效链接",
+      "background": null
+    },
+    {
+      "id": "details",
+      "markdown": "## 发出之前\n\n| 检查项 | 通过条件 |\n| --- | --- |\n| 内容 | 关键信息没有缺失 |\n| 图片 | 离线打开仍可见 |\n| 手机 | 文字和图片可完整阅读 |\n\n> 让一个没参与讨论的人读一遍，比继续补背景更有用。",
+      "background": "#f0f5ef"
+    },
+    {
+      "id": "example",
+      "markdown": "## 一段可复用的提示\n\n```text\n请把下面材料整理成一页说明。\n保留事实；给出对象、证据和下一步。\n不要替我补造数字。\n```\n\n![检查内容和图片的示意图](pai:detail)\n\n[打开检查清单](https://example.com/guide)",
+      "background": null
+    }
+  ],
+  "assets": {
+    "hero": {
+      "mime": "image/svg+xml",
+      "name": "guide-hero.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2Q4ZTFlYiIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5PTkUgUEFHRSAvIE9ORSBDTEVBUiBJREVBPC90ZXh0Pjwvc3ZnPg==",
+      "bytes": 454
+    },
+    "detail": {
+      "mime": "image/svg+xml",
+      "name": "guide-detail.svg",
+      "data": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NjAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgOTYwIDYwMCI+PHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI2MDAiIHJ4PSIyNCIgZmlsbD0iI2Q1ZThkYyIvPjxjaXJjbGUgY3g9Ijc0MCIgY3k9IjE1MCIgcj0iMjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIuMzgiLz48cGF0aCBkPSJNMCA1MjBMMjMwIDI2MEw0MjAgNDQwTDY1MCAyMTBMOTYwIDQ2MFY2MDBIMFoiIGZpbGw9IiMxNDNmMzUiIG9wYWNpdHk9Ii44Ii8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMTYwIiByPSI1NSIgZmlsbD0iI2ZmZjVjZiIvPjx0ZXh0IHg9IjUyIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmaWxsPSIjMTUzYjMyIj5SRUFEIC8gQ0hFQ0sgLyBTRU5EPC90ZXh0Pjwvc3ZnPg==",
+      "bytes": 448
+    }
+  }
+}

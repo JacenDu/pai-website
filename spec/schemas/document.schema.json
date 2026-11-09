@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pai.example/spec/schemas/document.schema.json",
+  "title": "PAI document 0.6 — Draft 1",
+  "description": "Shared document payload for HTML data assets or planned ZIP path assets. The $id is an example identifier, not a published schema URL. Package mode, references, image syntax, byte lengths and unique IDs require the semantic checks in FORMAT.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "version", "id", "title", "revision", "background", "regions", "sections", "assets"],
+  "properties": {
+    "format": {"const": "pai"},
+    "version": {"const": "0.6"},
+    "id": {"$ref": "#/$defs/id"},
+    "title": {"type": "string"},
+    "revision": {"$ref": "#/$defs/nonnegativeSafeInteger"},
+    "background": {"$ref": "#/$defs/nullableColor"},
+    "regions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/region"}
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/section"}
+    },
+    "assets": {
+      "type": "object",
+      "propertyNames": {"$ref": "#/$defs/id"},
+      "additionalProperties": {"$ref": "#/$defs/asset"}
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "not": {"enum": ["__proto__", "constructor", "prototype"]}
+    },
+    "nonnegativeSafeInteger": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "nullableColor": {
+      "anyOf": [{"type": "null"}, {"$ref": "#/$defs/color"}]
+    },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "markdown", "background"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "markdown": {"type": "string"},
+        "background": {"$ref": "#/$defs/nullableColor"},
+        "backgroundImage": {"$ref": "#/$defs/backgroundImage"}
+      }
+    },
+    "backgroundImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset", "x", "y", "overlay", "shade"],
+      "properties": {
+        "asset": {"$ref": "#/$defs/id"},
+        "alt": {"type": "string"},
+        "x": {"type": "number", "minimum": 0, "maximum": 100},
+        "y": {"type": "number", "minimum": 0, "maximum": 100},
+        "overlay": {"type": "number", "minimum": 0, "maximum": 1},
+        "shade": {"$ref": "#/$defs/color"}
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "regions", "columns", "weights", "width"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "regions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/id"}
+        },
+        "columns": {"type": "integer", "enum": [1, 2, 3]},
+        "weights": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {"type": "number", "minimum": 0.2, "maximum": 5}
+        },
+        "width": {"enum": ["reading", "wide"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"columns": {"const": 1}}},
+          "then": {
+            "properties": {
+              "regions": {"type": "array", "minItems": 1, "maxItems": 1},
+              "weights": {"type": "array", "minItems": 1, "maxItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"columns": {"const": 2}}},
+          "then": {
+            "properties": {
+              "regions": {"type": "array", "minItems": 2, "maxItems": 2},
+              "weights": {"type": "array", "minItems": 2, "maxItems": 2}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"columns": {"const": 3}}},
+          "then": {
+            "properties": {
+              "regions": {"type": "array", "minItems": 3, "maxItems": 3},
+              "weights": {"type": "array", "minItems": 3, "maxItems": 3}
+            }
+          }
+        }
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mime"],
+      "properties": {
+        "mime": {"enum": ["image/png", "image/jpeg", "image/webp", "image/gif", "image/svg+xml"]},
+        "name": {"type": "string"},
+        "bytes": {"$ref": "#/$defs/nonnegativeSafeInteger"},
+        "data": {
+          "type": "string",
+          "contentEncoding": "base64",
+          "description": "Alphabet and terminal padding only; the semantic check must verify length and canonical Base64 by decoding and re-encoding.",
+          "pattern": "^[A-Za-z0-9+/]*={0,2}$"
+        },
+        "path": {"type": "string", "pattern": "^assets/[A-Za-z0-9_-]+$"}
+      },
+      "oneOf": [
+        {"required": ["data"], "properties": {"data": {}}},
+        {"required": ["path"], "properties": {"path": {}}}
+      ]
+    }
+  }
+}
